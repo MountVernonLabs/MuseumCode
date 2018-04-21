@@ -18,8 +18,15 @@ if ($result->num_rows > 0) {
 
       // Get user profile from GitHub
       $github_user = file_get_contents("http://api.github.com/users/".$row["user"], true, $context);
+      $user = json_decode($github_user);
       echo $user->{"id"}."\n";
 
+      $sql = "UPDATE organizations SET id=".$user->{"id"}." WHERE user='".$row["user"]."'";
+      if ($conn->query($sql) === TRUE) {
+          echo "Record updated successfully";
+      } else {
+          echo "Error updating record: " . $conn->error;
+      }
   }
 }
 
