@@ -5,3 +5,6 @@
 .avatar-large {
   width: 100px;
 }
+.repo_row {
+  cursor: pointer;
+}

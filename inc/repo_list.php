@@ -1,4 +1,4 @@
-<tr>
+<tr onclick="window.location='/project/<?=$row["id"]?>'" class="repo_row">
     <td class="avatar"><img src="<?=$row["avatar"]?>" class="avatar"></td>
     <td>
       <?=$row["name"]?><br>

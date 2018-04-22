@@ -6,10 +6,11 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^/(.*)$ index.php [NC]
 
 #projects listing
+RewriteRule ^projects projects.php [NC]
 RewriteRule ^projects/(.*)$ projects.php?page=$1 [NC]
 
 #org page
 RewriteRule ^org/(.*)$ org.php?name=$1 [NC]
 
 #project page
-RewriteRule ^project/(.*)$ project.php?name=$1 [NC]
+RewriteRule ^project/(.*)$ project.php?id=$1 [NC]
