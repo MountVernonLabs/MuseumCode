@@ -9,7 +9,7 @@ if ($conn->connect_error) {
 }
 
 // Retrieve all organizations and update their latest information
-$sql = "SELECT user FROM organizations";
+$sql = "SELECT user FROM organizations order by rand() limit 10";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -52,9 +52,21 @@ if ($result->num_rows > 0) {
       foreach ($repos as $repo){
         echo "Found ".$repo->{'name'}."\n";
 
-        $sql = "INSERT INTO repos SET id=".$repo->{'id'}.",name='".$repo->{'name'}."',description='".addslashes($repo->{'description'})."',url='".$repo->{'html_url'}."',created='".$repo->{'created_at'}."',updated='".$repo->{'updated_at'}."',language='".$repo->{'language'}."' ON DUPLICATE KEY UPDATE name='".$repo->{'name'}."',description='".addslashes($repo->{'description'})."',url='".$repo->{'html_url'}."',created='".$repo->{'created_at'}."',updated='".$repo->{'updated_at'}."',language='".$repo->{'language'}."';";
+        $sql = "INSERT INTO repos SET id=".$repo->{'id'}.",org=".$user->{"id"}.",name='".$repo->{'name'}."',description='".addslashes($repo->{'description'})."',url='".$repo->{'html_url'}."',created='".$repo->{'created_at'}."',updated='".$repo->{'updated_at'}."',language='".$repo->{'language'}."' ON DUPLICATE KEY UPDATE name='".$repo->{'name'}."',description='".addslashes($repo->{'description'})."',url='".$repo->{'html_url'}."',created='".$repo->{'created_at'}."',updated='".$repo->{'updated_at'}."',language='".$repo->{'language'}."';";
         $conn->query($sql);
 
+      }
+      if ($user->{"public_repos"} > 100){
+        $github_repos = file_get_contents("http://api.github.com/users/".$row["user"]."/repos?per_page=100&page=2", true, $context);
+        $repos = json_decode($github_repos);
+
+        foreach ($repos as $repo){
+          echo "Found ".$repo->{'name'}."\n";
+
+          $sql = "INSERT INTO repos SET id=".$repo->{'id'}.",name='".$repo->{'name'}."',description='".addslashes($repo->{'description'})."',url='".$repo->{'html_url'}."',created='".$repo->{'created_at'}."',updated='".$repo->{'updated_at'}."',language='".$repo->{'language'}."' ON DUPLICATE KEY UPDATE name='".$repo->{'name'}."',description='".addslashes($repo->{'description'})."',url='".$repo->{'html_url'}."',created='".$repo->{'created_at'}."',updated='".$repo->{'updated_at'}."',language='".$repo->{'language'}."';";
+          $conn->query($sql);
+
+        }
       }
       echo "\n\n";
       sleep(10);
