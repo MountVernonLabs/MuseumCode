@@ -37,9 +37,13 @@ The goal of this project is to establish a central location for digital sharing 
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
-              while($row = $result->fetch_assoc()) { ?>
+              while($row = $result->fetch_assoc()) {
+                if ($row["name"] == "") {
+                  $row["name"] = $row["user"];
+                }
+            ?>
                 <a href="/org/<?=$row["user"]?>">
-                  <img src="<?=$row["avatar"]?>" class="avatar">
+                  <img src="<?=$row["avatar"]?>" class="avatar" alt="<?=$row["name"]?>">
                 </a>
           <?php }} ?>
         </div>
