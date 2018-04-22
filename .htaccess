@@ -14,3 +14,6 @@ RewriteRule ^org/(.*)$ org.php?name=$1 [NC]
 
 #project page
 RewriteRule ^project/(.*)$ project.php?id=$1 [NC]
+
+#submit
+RewriteRule ^submit submit.php [NC]
