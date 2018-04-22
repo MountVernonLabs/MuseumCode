@@ -1,5 +1,14 @@
 <?php
   include "inc/start.php";
+
+  $sql_count_org = "select count(id) as total from organizations";
+  $org_count_org_results = mysqli_query($conn, $sql_count_org);
+  $count_org = mysqli_fetch_assoc($org_count_org_results);
+
+  $sql_count_repo = "select count(id) as total from repos";
+  $org_count_repo_results = mysqli_query($conn, $sql_count_repo);
+  $count_repo = mysqli_fetch_assoc($org_count_repo_results);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,9 +28,9 @@ The goal of this project is to establish a central location for digital sharing 
           include "inc/nav.php";
         ?>
 
-          <div class="uk-section uk-light">
-              <div class="uk-container uk-text-center">
-
+          <div class="uk-section uk-light uk-padding-remove-top">
+              <div class="uk-container uk-text-center uk-padding-remove-top">
+                  <h3 class="uk-padding-remove-top"><?=$count_org["total"]?> Institutions, <?=$count_repo["total"]?> Projects</h3>
                   <p>Museum Code features projects submitted to GitHub from official museum accounts. <br>The goal of this project is to establish a central location for digital sharing among this community.</p>
 
               </div>
