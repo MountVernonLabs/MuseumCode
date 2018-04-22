@@ -67,10 +67,22 @@
                 include "inc/Parsedown.php";
                 $Parsedown = new Parsedown();
 
-                $get_readme = file_get_contents("https://raw.githubusercontent.com/".$org["user"]."/".$repo["name"]."/master/README.md", true, $context);
-                if(preg_match('#404#', $get)){
+                $handle = curl_init("https://raw.githubusercontent.com/".$org["user"]."/".$repo["name"]."/master/README.md");
+                curl_setopt($handle,  CURLOPT_RETURNTRANSFER, TRUE);
+
+                /* Get the HTML or whatever is linked in $url. */
+                $response = curl_exec($handle);
+
+                /* Check for 404 (file not found). */
+                $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+                if($httpCode == 404) {
                   $get_readme = file_get_contents("https://raw.githubusercontent.com/".$org["user"]."/".$repo["name"]."/master/readme.md", true, $context);
+                } else {
+                  $get_readme = file_get_contents("https://raw.githubusercontent.com/".$org["user"]."/".$repo["name"]."/master/README.md", true, $context);
                 }
+
+                curl_close($handle);
+
                 echo $Parsedown->text($get_readme);
               ?>
             </div>
