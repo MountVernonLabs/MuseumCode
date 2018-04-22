@@ -43,6 +43,7 @@ if ($result->num_rows > 0) {
 
       $sql = "UPDATE organizations SET url='".$user->{"blog"}."' WHERE user='".$row["user"]."';";
       $conn->query($sql);
+      sleep(10);
 
       // Get a list of repos for the organization
       $github_repos = file_get_contents("http://api.github.com/users/".$row["user"]."/repos?per_page=100", true, $context);
@@ -56,6 +57,7 @@ if ($result->num_rows > 0) {
 
       }
       echo "\n\n";
+      sleep(10);
   }
 }
 
