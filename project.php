@@ -45,7 +45,7 @@
           <p class="uk-padding-remove"><?=$repo["description"]?></p>
           <?php if ($repo["language"] != ""){ ?>
           <p>
-            <span class="uk-label uk-label-success"><?=$repo["language"]?></span>
+            <span class="uk-label uk-label-success"><a href="/lang/<?=$repo["language"]?>"><?=$repo["language"]?></a></span>
           </p>
         <?php } ?>
           <a class="uk-button uk-button-secondary uk-float-right" target="_blank" href="<?=$repo["url"]?>"><span uk-icon="icon: git-branch; ratio: 1" class="uk-margin-small-right"></span>View Code</a>

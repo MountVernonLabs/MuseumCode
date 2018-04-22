@@ -9,6 +9,9 @@ RewriteRule ^/(.*)$ index.php [NC]
 RewriteRule ^projects projects.php [NC]
 RewriteRule ^projects/(.*)$ projects.php?page=$1 [NC]
 
+#language page
+RewriteRule ^lang/(.*)$ lang.php?lang=$1 [NC]
+
 #org page
 RewriteRule ^org/(.*)$ org.php?name=$1 [NC]
 

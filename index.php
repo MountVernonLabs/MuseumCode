@@ -73,6 +73,26 @@ The goal of this project is to establish a central location for digital sharing 
         </div>
       </div>
 
+      <div class="uk-section uk-background-muted">
+        <div class="uk-container">
+          <h3 class="uk-text-center">Languages</h3>
+          <div class="uk-width-2-3 uk-align-center">
+            <center>
+              <?php
+                $sql = "select distinct language from repos where language != ''";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                  while($row = $result->fetch_assoc()) {
+                  ?>
+                    <span class="uk-label uk-label-success uk-margin-right-small uk-margin-bottom-small"><a href="/lang/<?=$row["language"]?>"><?=$row["language"]?></a></span>
+              <?php    }}
+            ?>
+            </center>
+          </div>
+        </div>
+      </div>
+
       <?php
         include "inc/footer.php";
       ?>

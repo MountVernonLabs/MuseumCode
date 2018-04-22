@@ -8,3 +8,15 @@
 .repo_row {
   cursor: pointer;
 }
+
+/* Extend UIKit */
+.uk-margin-bottom-small {
+  margin-bottom: 10px !important;
+}
+.uk-margin-right-small {
+  margin-bottom: 10px !important;
+}
+.uk-label a {
+  color: #fff;
+  text-decoration: none;
+}
