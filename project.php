@@ -20,6 +20,8 @@
 
         ?>
         <title>MuseumCODE - <?=$repo["name"]?></title>
+        <meta name="description" content="<?=$repo["description"]?>">
+        <meta name="author" content="<?=$org["name"]?>">
         <?php
           include "inc/scripts.php";
         ?>
@@ -52,7 +54,7 @@
           <p class="uk-padding-remove uk-margin-remove uk-text-small"><span uk-icon="icon: refresh; ratio: .7" class="uk-margin-small-right"></span> Last updated <?=HowLongAgo($repo["updated"])?></p>
 
 
-          <hr>
+          <hr class="uk-margin-large">
           <p>
             <div class="uk-card uk-card-default uk-card-body">
               <?php

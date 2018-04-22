@@ -8,6 +8,8 @@
         <?php
           include "inc/scripts.php";
         ?>
+        <meta name="description" content="Museum Code features projects submitted to GitHub from official museum accounts.
+The goal of this project is to establish a central location for digital sharing among this community.">
     </head>
     <body>
       <!-- Nav -->

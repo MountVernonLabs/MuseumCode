@@ -15,6 +15,8 @@
 
         ?>
         <title>MuseumCODE - <?=$org["name"]?></title>
+        <meta name="description" content="<?=$org["bio"]?>">
+        <meta name="author" content="<?=$org["name"]?>">
         <?php
           include "inc/scripts.php";
         ?>
