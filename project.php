@@ -52,8 +52,14 @@
 
           <p class="uk-padding-remove uk-margin-remove uk-text-small"><span uk-icon="icon: cloud-upload; ratio: .7" class="uk-margin-small-right"></span> Created <?=HowLongAgo($repo["created"])?></p>
           <p class="uk-padding-remove uk-margin-remove uk-text-small"><span uk-icon="icon: refresh; ratio: .7" class="uk-margin-small-right"></span> Last updated <?=HowLongAgo($repo["updated"])?></p>
-
-
+          <p class="uk-padding-remove uk-text-small"><span uk-icon="icon: user; ratio: 1" class="uk-margin-small-right"></span>Contributors:
+          <?php
+            $get_authors = file_get_contents("https://api.github.com/repos/".$org["user"]."/".$repo["name"]."/contributors", true, $context);
+            $authors = json_decode($get_authors);
+            foreach ($authors as $author){
+              echo '<a target="_blank" href="'.$author->{"html_url"}.'" class="uk-link-muted">@'.$author->{"login"}.'</a> ';
+            }
+          ?>
           <hr class="uk-margin-large">
           <p>
             <div class="uk-card uk-card-default uk-card-body">
@@ -62,6 +68,9 @@
                 $Parsedown = new Parsedown();
 
                 $get_readme = file_get_contents("https://raw.githubusercontent.com/".$org["user"]."/".$repo["name"]."/master/README.md", true, $context);
+                if(preg_match('#404#', $get)){
+                  $get_readme = file_get_contents("https://raw.githubusercontent.com/".$org["user"]."/".$repo["name"]."/master/readme.md", true, $context);
+                }
                 echo $Parsedown->text($get_readme);
               ?>
             </div>

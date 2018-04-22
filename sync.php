@@ -63,7 +63,7 @@ if ($result->num_rows > 0) {
         foreach ($repos as $repo){
           echo "Found ".$repo->{'name'}."\n";
 
-          $sql = "INSERT INTO repos SET id=".$repo->{'id'}.",name='".$repo->{'name'}."',description='".addslashes($repo->{'description'})."',url='".$repo->{'html_url'}."',created='".$repo->{'created_at'}."',updated='".$repo->{'updated_at'}."',language='".$repo->{'language'}."' ON DUPLICATE KEY UPDATE name='".$repo->{'name'}."',description='".addslashes($repo->{'description'})."',url='".$repo->{'html_url'}."',created='".$repo->{'created_at'}."',updated='".$repo->{'updated_at'}."',language='".$repo->{'language'}."';";
+          $sql = "INSERT INTO repos SET id=".$repo->{'id'}.",name='".$repo->{'name'}."',description='".addslashes($repo->{'description'})."',url='".$repo->{'html_url'}."',created='".$repo->{'created_at'}."',updated='".$repo->{'updated_at'}."',language='".$repo->{'language'}."' ON DUPLICATE KEY UPDATE name='".$repo->{'name'}."',description='".addslashes($repo->{'description'})."',url='".$repo->{'html_url'}."',created='".$repo->{'created_at'}."',org=".$user->{"id"}.",updated='".$repo->{'updated_at'}."',language='".$repo->{'language'}."';";
           $conn->query($sql);
 
         }
