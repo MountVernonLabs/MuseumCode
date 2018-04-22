@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>MuseumCODE</title>
+        <title>MuseumCODE - Projects</title>
         <?php
           include "inc/scripts.php";
         ?>
@@ -60,14 +60,14 @@
               <?php
                 if ($page != 1){
               ?>
-              <li><a href="/projects?page=<?=$page-1?>"><span uk-pagination-previous></span></a></li>
+              <li><a href="/projects/<?=$page-1?>"><span uk-pagination-previous></span></a></li>
               <?php } ?>
               <?php
                 $total_pages = $number_repos / 25;
                 $count = 1;
                 for ($k = 0 ; $k < $total_pages; $k++){
               ?>
-                  <li><a href="/projects?page=<?=$count?>"><?=$count?></a></li>
+                  <li><a href="/projects/<?=$count?>"><?=$count?></a></li>
               <?php
                 $count = $count + 1;
                 }
@@ -75,7 +75,7 @@
               <?php
                 if ($page != $total_pages){
               ?>
-              <li><a href="/projects?page=<?=$page+1?>"><span uk-pagination-next></span></a></li>
+              <li><a href="/projects/<?=$page+1?>"><span uk-pagination-next></span></a></li>
               <?php } ?>
           </ul>
 

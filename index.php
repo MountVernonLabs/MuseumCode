@@ -36,7 +36,9 @@
 
             if ($result->num_rows > 0) {
               while($row = $result->fetch_assoc()) { ?>
-                <img src="<?=$row["avatar"]?>" class="avatar">
+                <a href="/org/<?=$row["user"]?>">
+                  <img src="<?=$row["avatar"]?>" class="avatar">
+                </a>
           <?php }} ?>
         </div>
       </div>
@@ -65,7 +67,7 @@
                 ?>
               </tbody>
           </table>
-          <a src="/projects/" class="uk-button uk-button-default uk-align-center uk-width-medium">More Projects</a>
+          <a href="/projects" class="uk-button uk-button-default uk-align-center uk-width-medium">More Projects</a>
         </div>
       </div>
 

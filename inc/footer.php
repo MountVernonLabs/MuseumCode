@@ -1,7 +1,7 @@
 <div class="uk-section uk-background-secondary">
   <div class="uk-container uk-align-center">
     <p class="uk-text-center uk-h3 uk-light">Are we missing your organization?</p>
-    <a class="uk-button uk-button-primary uk-width-medium uk-align-center" href="/submit/">Let Us Know</a>
+    <a class="uk-button uk-button-primary uk-width-medium uk-align-center" href="/submit">Let Us Know</a>
   </div>
 </div>
 

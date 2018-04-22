@@ -2,3 +2,6 @@
     width: 50px;
     margin-right: 10px; margin-bottom: 10px;
 }
+.avatar-large {
+  width: 100px;
+}

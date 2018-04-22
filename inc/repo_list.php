@@ -1,5 +1,5 @@
 <tr>
-    <td><img src="<?=$row["avatar"]?>" class="avatar"></td>
+    <td class="avatar"><img src="<?=$row["avatar"]?>" class="avatar"></td>
     <td>
       <?=$row["name"]?><br>
       <span class="uk-text-small"><?=$row["description"]?></span>
