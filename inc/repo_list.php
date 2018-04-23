@@ -1,5 +1,5 @@
 <tr onclick="window.location='/project/<?=$row["id"]?>'" class="repo_row">
-    <td class="avatar"><img src="<?=$row["avatar"]?>" class="avatar"></td>
+    <td class="avatar"><a href="/project/<?=$row["id"]?>"><img src="<?=$row["avatar"]?>" class="avatar"></a></td>
     <td>
       <?=$row["name"]?><br>
       <span class="uk-text-small"><?=$row["description"]?></span>
