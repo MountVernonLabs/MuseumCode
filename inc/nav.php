@@ -12,9 +12,9 @@
               </div>
               <div class="uk-navbar-right">
                 <div class="uk-navbar-item">
-                    <form action="javascript:void(0)">
-                        <input class="uk-input uk-form-width-small" type="text" placeholder="search">
-                        <a class="uk-button uk-padding-remove-horizontal uk-padding-left-small uk-margin-small-left"><span class="uk-margin-small-right" uk-icon="search"></span></a>
+                    <form id="search" action="/search" method="get">
+                        <input class="uk-input uk-form-width-small" name="q" type="text" placeholder="search">
+                        <a class="uk-button uk-padding-remove-horizontal uk-padding-left-small uk-margin-small-left" onclick="document.getElementById('search').submit();"><span class="uk-margin-small-right" uk-icon="search"></span></a>
                     </form>
                 </div>
               </div>

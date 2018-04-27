@@ -20,3 +20,6 @@ RewriteRule ^project/(.*)$ project.php?id=$1 [NC]
 
 #submit
 RewriteRule ^submit submit.php [NC]
+
+#search
+RewriteRule ^search search.php [NC]

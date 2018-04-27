@@ -8,6 +8,9 @@
 .repo_row {
   cursor: pointer;
 }
+.search-results {
+  min-height: 450px;
+}
 
 /* Extend UIKit */
 .uk-margin-bottom-small {
